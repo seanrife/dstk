@@ -11,7 +11,7 @@ sudo aptitude install -y build-essential apache2 apache2.2-common apache2-mpm-pr
 sudo aptitude install -y oracle-java7-installer
 sudo aptitude install -y libgdal-dev
 sudo aptitude install -y libgeos++-dev
-sudo bash -c 'echo "/usr/lib/jvm/java-7-oracle/jre/lib/amd64/server" > /etc/ld.so.conf.d/jvm.conf'
+sudo bash -c 'echo "/usr/lib/jvm/java-7-oracle/jre/lib/i386/server" > /etc/ld.so.conf.d/jvm.conf'
 sudo ldconfig
 
 mkdir ~/sources
