@@ -119,21 +119,16 @@ sudo gem install passenger
 sudo passenger-install-apache2-module
 
 # You'll need to update the version number below to match whichever actual passenger version was installed
-sudo bash -c 'echo "LoadModule passenger_module /var/lib/gems/1.8/gems/passenger-4.0.2/libout/apache2/mod_passenger.so"  > /etc/apache2/mods-enabled/passenger.load'
-sudo bash -c 'echo "PassengerRoot /var/lib/gems/1.8/gems/passenger-4.0.2" > /etc/apache2/mods-enabled/passenger.conf'
+sudo bash -c 'echo "LoadModule passenger_module /var/lib/gems/1.8/gems/passenger-4.0.3/libout/apache2/mod_passenger.so"  > /etc/apache2/mods-enabled/passenger.load'
+sudo bash -c 'echo "PassengerRoot /var/lib/gems/1.8/gems/passenger-4.0.3" > /etc/apache2/mods-enabled/passenger.conf'
 sudo bash -c 'echo "PassengerRuby /usr/bin/ruby1.8" >> /etc/apache2/mods-enabled/passenger.conf'
 sudo bash -c 'echo "PassengerMaxPoolSize 3" >> /etc/apache2/mods-enabled/passenger.conf'
 sudo sed -i "s/MaxRequestsPerChild[ \t][ \t]*[0-9][0-9]*/MaxRequestsPerChild 20/" /etc/apache2/apache2.conf
 
 sudo bash -c 'echo "
   <VirtualHost *:80>
-      ServerName www.yourhost.com
+      ServerName dstk
       DocumentRoot /home/ubuntu/sources/dstk/public
-      RewriteEngine On
-      RewriteCond %{HTTP_HOST} ^datasciencetoolkit.org$ [NC]
-      RewriteRule ^(.*)$ http://www.datasciencetoolkit.org$1 [R=301,L]
-      RewriteCond %{HTTP_HOST} ^datasciencetoolkit.com$ [NC]
-      RewriteRule ^(.*)$ http://www.datasciencetoolkit.com$1 [R=301,L]
       <Directory /home/ubuntu/sources/dstk/public>
          AllowOverride all
          Options -MultiViews
