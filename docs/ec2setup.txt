@@ -158,7 +158,7 @@ make
 sudo make install
 cd ..
 svn checkout svn://rubyforge.org/var/svn/net-geoip/trunk net-geoip
-cd net-geoip/
+cd net-geoip
 ruby ext/extconf.rb 
 make
 sudo make install
