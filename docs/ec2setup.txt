@@ -199,7 +199,7 @@ javac -cp ../dist/boilerpipe-1.1-dev.jar boilerpipe.java
 cd ~/sources/dstk/
 psql -U postgres -d reversegeo -f sql/loadukpostcodes.sql
 
-osm2pgsql -U postgres -d reversegeo -p uk_osm -S ../osm2pgsql/default.style ../dstkdata/uk_osm.osm.bz2 -l
+osm2pgsql -U postgres -d reversegeo -p uk_osm -S ../osm2pgsql/default.style ../dstkdata/uk_osm.osm.bz2 -l -s --cache 256
 
 psql -U postgres -d reversegeo -f sql/buildukindexes.sql
 
